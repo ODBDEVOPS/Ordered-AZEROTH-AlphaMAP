@@ -7,6 +7,8 @@ height
 
 ## Orderedazeroth_X_Y_layer1.png
 layer1
+![image](https://github.com/user-attachments/assets/cd6e3578-ba90-44d3-8eae-e66579e5f992)
+
 ## Orderedazeroth_X_Y_layer2.png
 layer2
 ## Orderedazeroth_X_Y_layer3.png
