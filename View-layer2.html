@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte des Images</title>
+    <style>
+ 	body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #menu {
+            margin-bottom: 20px;
+        }
+        button {
+            margin-right: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        #conteneur {
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-height: 200px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(64, auto);
+	        overflow: auto;
+            gap: 0px;
+        }
+        .grid img {
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        
+        <a href="View-height.html"><button >Height</button></a>
+        <a href="View-layer1.html"><button >Layer 1</button></a>
+        <a href="View-layer2.html"><button >Layer 2</button></a>
+            <button id="resizeButton">Px20</button>
+            <button id="resizeB50">Px50</button>
+            <button id="ADTOn">ADTOn</button>
+            <button id="ADTOff">ADTOff</button>
+        <a href="View-layer3.html"><button >Layer 3</button></a>
+        <a href="View-Vcol.html"><button >Vcol</button></a>
+    </div>
+
+    <div id="conteneur">
+        <h2>Layer 2</h2>
+        <p>Cliquez sur un bouton pour afficher le contenu ici.</p>
+        <div class="grid" id="imageGrid">
+
+        </div>
+    </div>
+
+    <script>
+        const layers = ['layer2'];
+        const gridContainer = document.getElementById('imageGrid');
+
+        function createGrid(layer) {
+            gridContainer.innerHTML = '';
+            for (let y = 0; y < 64; y++) {
+                for (let x = 0; x < 64; x++) {
+                    const img = document.createElement('img');
+                    img.src = `_Layer2/OrderedAzeroth_${x}_${y}_${layer}.png`;
+                    img.alt = `_Layer2/OrderedAzeroth_${x}_${y}_${layer}`;
+		            img.title = `_Layer2/OrderedAzeroth_${x}_${y}_${layer}`;
+                    img.onerror = function() { img.src = 'placeholder.png'; };
+                    gridContainer.appendChild(img);
+                }
+            }
+        }
+        document.getElementById('resizeButton').addEventListener('click', function() {
+            const images = document.querySelectorAll('.grid img');
+            images.forEach(function(img) {
+                img.style.width = '20px';
+                img.style.height = '20px';
+            });
+        });
+        document.getElementById('resizeB50').addEventListener('click', function() {
+            const images = document.querySelectorAll('.grid img');
+            images.forEach(function(img) {
+                img.style.width = '50px';
+                img.style.height = '50px';
+            });
+        });
+                
+        document.getElementById('ADTOn').addEventListener('click', function() {
+            const images = document.querySelectorAll('.grid img');
+            images.forEach(function(img) {
+                img.style.border='1px solid #ccc';
+            });
+        });
+        document.getElementById('ADTOff').addEventListener('click', function() {
+            const images = document.querySelectorAll('.grid img');
+            images.forEach(function(img) {
+                img.style.border='0px';
+            });
+        });
+        
+        createGrid('layer2'); // Initial grid creation with 'height' layer
+    </script>
+</body>
+</html>
