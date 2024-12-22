@@ -1,0 +1,8 @@
+# Ordered-AZEROTH-AlphaMAP
+Alpha-map
+Orderedazeroth_X_Y_height.png
+Orderedazeroth_X_Y_layer1.png
+Orderedazeroth_X_Y_layer2.png
+Orderedazeroth_X_Y_layer3.png
+Orderedazeroth_X_Y_vcol.png
+
